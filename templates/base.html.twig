@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}Symfony{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url('app_main') }}css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{ url('app_main') }}css/style.css" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+            <a class="navbar-brand" href="{{ path('app_main') }}">Symfony</a>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse"></div>
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a class="nav-link" href="{{ path('app_admin') }}">Admin</a></li>
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}
+                    <li><a class="nav-link" href="{{ path('app_profile') }}">Profile</a></li>
+                {% endif %}
+                {% if app.user %}
+                    <li><a class="nav-link" href="{{ path('app_list') }}">View List</a></li>
+                    <li><a class="nav-link" href="{{ path('app_logout') }}">Log Out</a></li>
+                {% else %}
+                    <li><a class="nav-link" href="{{ path('app_registration') }}">Register</a></li>
+                    <li><a class="nav-link" href="{{ path('app_login') }}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,30 @@
+.menu {
+    min-height: 70px;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.card form ul {
+    padding: 12px 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    background-color: #f8d7da;
+}
+
+.card form li {
+    list-style: none;
+}
+
+.registration {
+    margin-top: 5px;
+}
+
+.login {
+    margin-top: -5px;
+}
+
+.list {
+    margin-bottom: 15px;
+}
